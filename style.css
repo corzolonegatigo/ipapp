@@ -5,6 +5,27 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 60%;
     gap: 1vh
+}
+
+
+.item-selection-screen {
+    display: flex;
+    padding: 2vh 2vw;
+    background-color: gainsboro;
+    border-radius: 12px;
+    
+}
+
+.profile-picture {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 30%;
+}
+
+.post {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
 }

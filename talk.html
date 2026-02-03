@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Budggie</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>SOCIAL MEDIA Page</h1>
+    
+    <div class="item-selection-screen">
+      <section class="posting">
+        <form id="create-post">
+            <textarea id="post-desc" rows="8" > What do you want to talk about?</textarea>
+            <label id="image">select photos</label>
+            <input type="file" id="photos" accept="image/*" />
+
+            <input type="submit" value="Send" id="send-post">
+        </form>
+      </section>
+
+
+      <section id="posts">
+        
+      </section>
+    </div>
+   
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/socmed.js"></script>
+    <script src="https://ipapp-673e.restdb.io/rest/_jsapi.js"></script>
+  </body>
+</html> 

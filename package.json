@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
+    "body-parser": "^2.2.2",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "nodemon": "^3.1.11",
     "three": "^0.182.0"
   },
   "devDependencies": {
     "vite": "^7.3.1"
   },
   "scripts": {
-    "start": "/config.js"
+    "start": "nodemon ./backend/server.mjs"
+
   }
 }

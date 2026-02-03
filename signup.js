@@ -1,11 +1,16 @@
-import { APIKEY } from "./config.js";
+import { APIKEY, DB_URL } from "./config.js";
 
-const DB_URL = "https://ipapp-673e.restdb.io/rest/"
+const USERTEMPLATE = {
+    "username": "",
+    "password": "",
+    "email": "",
+    "currentitem": "",
+    "itemprogress": 0
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-
     document.getElementById("login-submit").addEventListener("click", function (e) {
         e.preventDefault();
-        console.log(13);
 
         let emailIn = document.getElementById("email").value;
         let usernameIn = document.getElementById("username").value;
@@ -19,15 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
             )
         }*/
 
-
+        const user = Object.create(USERTEMPLATE);
+        user.email = emailIn;
+        user.username = usernameIn;
+        user.password = passwwordIn;
 
         
-        let signupDataJSON = {
-            "email": emailIn,
-            "username": usernameIn,
-            "password": passwwordIn,
-
-        };
+        
 
         // to add files
         const signupDataForm = new FormData();
@@ -43,13 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // write post request
         var postsettings = {
-            async: true,
             method: "POST",
             headers: {
                 "x-apikey": APIKEY,
                 "cache-control": "no-cache",
+                "Content-Type": "application/json",
             },
-            body: signupDataForm
+            body: JSON.stringify(user),
             
             }
 
