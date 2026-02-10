@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const uid = userdata._id
     const saved_amt = window.localStorage.getItem('saved_amt');
     const money_to_add = window.localStorage.getItem('money_to_add');
+    delete userdata._id
     console.log(money_to_add)
     console.log(window.localStorage)
 
@@ -130,16 +131,21 @@ document.addEventListener("DOMContentLoaded", function () {
         // write api req to update itemprogress if valid input
 
         if (input_validity) {
-            const patch = new Object('itemprogress', (saved_amt + money_to_add))
+            console.log(userdata)
+            userdata.itemprogress = Number(saved_amt + money_to_add);
+            console.log(userdata.itemprogress, 'prg')
+
             // update itemprogress via api & localstorage 
             var setting = {
-                "method": "PATCH",
+                "method": "PUT",
                 "headers": {
                     "x-apikey": APIKEY,
                     "Content-Type": "application/json"
                 },
-                "body": JSON.stringify(patch),
+                "body": JSON.stringify(userdata),
             }
+            console.log(userdata)
+            console.log(uid)
 
             fetch(`${DB_URL}/individuals/${uid}`, setting)
                 .then(response => {
@@ -150,14 +156,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
                 .then(data => {
                     console.log("Results:", data);
-                    if (data.length > 0) {
-                        console.log("Found user:", data[0]);
-                        window.localStorage.setItem("Userdata", JSON.stringify(data)[0]);
-                    }
+                   
+                    console.log("Found user:", data[0]);
+                    window.localStorage.setItem("Userdata", JSON.stringify(data[0]));
+                    window.localStorage.removeItem('saved_amt');
+                    window.localStorage.removeItem('money_to_add');
+                    window.location.href = './main.html'
+                    
                 })
-            window.localStorage.removeItem('saved_amt');
-            window.localStorage.removeItem('money_to_add');
-            // window.location.href = './main.html';
+            
+            // ;
         }
     })
 

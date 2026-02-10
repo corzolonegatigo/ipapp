@@ -6,29 +6,43 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body class="">
-    <h1>Home Page</h1>
-    
+
+    <div id='3js-env'></div>
+
+
     <div class="selected-item-section" id="selected-item-section">
-      <h1 id="current-item">No Item Selected</h1>
-      <div class="progress-bar-row flex-row">
-        <div class="fullbar">
-          <div id="progress" class="progressbar"></div>
+        <h1 id="current-item">No Item Selected</h1>
+        <div class="progress-bar-row flex-row">
+          <div class="fullbar">
+            <div id="progress" class="progressbar"></div>
+          </div>
+          
         </div>
         <h2 id="progression-numeric-comparison">6/7</h2>
       </div>
-    </div>
-    <div class="page">
-      <section class="search"></section>
-      <section class="items" id="items">
-        <!--injected from ./load_items.js-->
-        
-      </section>
-      <a href="/talk.html">talk to others</a>
-    </div>
+    <section id="html-main-half">
+      <div class="page-main">
+        <nav id="nav-page-head-listings">
+          <a class="nav-head-link" href="/main.html">Shop</a>
+        </nav>
+        <section class="search">
+          <form id="search-bar">
+            <input type="text" placeholder="Search something" id="search-query">
+            <button type="submit" id="enter-query">Search</button>
+          </form>
+        </section>
+        <section class="items" id="items">
+          <!--injected from ./load_items.js-->
+          
+        </section>
+        <a href="/talk.html">talk to others</a>
+      </div>
+    </section>
    
-    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/three_environments/home_page.js"></script>
     <script type="module" src="./scripts/load_items.js"></script>
     <script type="module" src="./scripts/set_item_progress.js"></script>
+    <script type="module" src='./scripts/listing_page_headers.js'></script>
     <script src="https://ipapp-673e.restdb.io/rest/_jsapi.js"></script>
   </body>
 </html> 

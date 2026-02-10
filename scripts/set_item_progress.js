@@ -1,5 +1,7 @@
 import { listing_items } from "./mock_data";
 console.log(window.localStorage)
+
+
 let userinfo = JSON.parse(localStorage.getItem("Userdata"));
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -28,14 +30,15 @@ document.addEventListener("DOMContentLoaded", function() {
         progress_bar.classList.remove('hidden');
         let saved_amt = 0
         if ('itemprogress' in userinfo) {
-            saved_amt = 0;
-        } else {
             saved_amt = userinfo.itemprogress;
+        } else {
+            
+            saved_amt = 0;
         }
 
         // set progress bar
         const full_amt = listing_items.find(i => i.title === window.localStorage.getItem('current-item')).price;
-        const progress_percentage = Math.round(saved_amt/full_amt * 100) / 100
+        const progress_percentage = Math.round(saved_amt/full_amt * 100)
 
         //write full_amt to localstorage (so can be used in 'add_money.js')
         window.localStorage.setItem('full_price', full_amt);

@@ -1,49 +1,81 @@
 import { listing_items } from "./mock_data"
 
 document.addEventListener("DOMContentLoaded", function () { 
-    const items_section = document.getElementById('items');
+    const items_section = document.getElementById('items'); 
 
-    for (const item in listing_items) {
-        const itemdata = listing_items[item]
-        const item_listing = document.createElement('div');
-        item_listing.className = "listing-item";
+    const search_bar = document.getElementById('search-query');
+    const enter_search = document.getElementById('enter-query');
+
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get('search') || '';
+
+    search_bar.addEventListener('input', () => {
+        let current_search = search_bar.value;
+        render_items(current_search);
+    })
+
+    enter_search.addEventListener('click', function (e) {
+        e.preventDefault();
+        let current_search = search_bar.value;
+
+        const newUrl = current_search ? `?search=${encodeURIComponent(current_search)}` : window.location.pathname;
+        window.history.replaceState(null, '', newUrl);
+
+        // just for the header
+        window.localStorage.setItem('search-url', newUrl);
         
+        render_items(current_search);
+    })
 
-        const item_thumbnail = document.createElement('img');
-        item_thumbnail.src = itemdata.img_main;
-        item_thumbnail.className = "thumbnail";
+    function render_items(query = '') {
 
-        const item_title = document.createElement('h2');
-        item_title.innerText = itemdata.title;
-        
-        const item_desc = document.createElement('p');
-        item_desc.innerText = itemdata.desc;
-        item_desc.className = "item-description"
+        // holy nest
+        items_section.innerHTML = '';
+        for (const item in listing_items) {
+            const itemdata = listing_items[item]
+            if ((itemdata.title.includes(query)) || (query === '')) {
+                const item_listing = document.createElement('div');
+                item_listing.className = "listing-item";
+                
 
-        const item_seller = document.createElement('h3');
-        item_seller.innerText = `Sold by ${itemdata.sold_by}`
+                const item_thumbnail = document.createElement('img');
+                item_thumbnail.src = itemdata.img_main;
+                item_thumbnail.className = "thumbnail";
 
-        
-        // append to specific post
-        item_listing.appendChild(item_thumbnail);
-        item_listing.appendChild(item_title);
-        item_listing.appendChild(item_desc);
-        item_listing.appendChild(item_seller);
+                const item_title = document.createElement('h2');
+                item_title.innerText = itemdata.title;
+                
+                const item_desc = document.createElement('p');
+                item_desc.innerText = itemdata.desc;
+                item_desc.className = "item-description"
 
-        // append post to section
+                const item_seller = document.createElement('h3');
+                item_seller.innerText = `Sold by ${itemdata.sold_by}`
 
-        items_section.appendChild(item_listing);
+                
+                // append to specific post
+                item_listing.appendChild(item_thumbnail);
+                item_listing.appendChild(item_title);
+                item_listing.appendChild(item_desc);
+                item_listing.appendChild(item_seller);
 
-        item_listing.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.localStorage.setItem('item-listing-data', JSON.stringify(itemdata));
-            window.location.href = "./selecting_item.html";
+                // append post to section
 
-        })
+                items_section.appendChild(item_listing);
 
+                item_listing.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.localStorage.setItem('item-listing-data', JSON.stringify(itemdata));
+                    window.location.href = "./selecting_item.html";
+
+                })
+            }
+        }
 
 
     }
+
+    render_items(searchQuery)
 
 
 })

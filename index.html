@@ -6,20 +6,24 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Log In</h1>
-    
-    <form id="login">
-      <label for="username">Username</label>
-      <input type="text" id="username" required>
-      <label for="password">Password</label>
-      <input type="text" id="password" required>
+    <div id="3js-env"></div>
+    <section id="html-main" class="page-main">
 
-      <input type="submit" value="Send" id="login-submit">
-    </form>
+      <h1>Log In</h1>
+      
+      <form id="login">
+        <label for="username">Username</label>
+        <input type="text" id="username" required>
+        <label for="password">Password</label>
+        <input type="text" id="password" required>
 
-    <a id="login-signup-switch" href="./signup.html">Sign Up</a>
+        <input type="submit" value="Send" id="login-submit">
+      </form>
+
+      <a id="login-signup-switch" href="./signup.html">Sign Up</a>
+    </section>
     
-    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/three_environments/login_signin.js"></script>
     <script src="https://ipapp-673e.restdb.io/rest/_jsapi.js"></script>
     <script type="module" src="./scripts/login.js"></script>
   </body>
