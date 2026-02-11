@@ -18,7 +18,6 @@ scene.add(new THREE.AmbientLight(0xffffff, 0.8))
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 
-
 const three_env = document.getElementById('3js-env')
 three_env.appendChild( renderer.domElement );
 

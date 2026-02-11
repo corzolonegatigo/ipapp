@@ -4,10 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let img_arr = JSON.parse(window.localStorage.getItem('item-listing-data')).img_carou;
 
-    console.log(img_arr)
-    console.log(typeof img_arr)
-    console.log(img_arr[0])
-
     // get fwd and back buttons for carousell
     const fwd_btn = document.getElementById('carou-fwd');
     const bck_btn = document.getElementById('carou-bck');
@@ -44,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     function set_images() {
         display_img.src = img_arr[0];
-        console.log(img_arr)
         // dont inject and set in same loop cause this loop is called multiple times (do i need to cmment this)
         for (let i = 0; i < CAROU_IMG_AMT; i++) {
             const img = document.getElementById(i);

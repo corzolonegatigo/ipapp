@@ -7,8 +7,13 @@
   </head>
   <body>
     
-    <div class="page">
+    <div id='3js-env'></div>
+    <div id="html-main" class="page-main">
+      <nav id="nav-page-head-listings">
+          <a class="nav-head-link" href="/main.html" id="shop-redirect">Shop</a>
+        </nav>
       <section class="hide-toggle">
+        
         <img id="selected-img">
         <div class="image-carousell" id="image-carousell">
             <button class="change-carousell-item" id="carou-bck">bck</button>
@@ -66,10 +71,11 @@
 
     <a href="/talk.html">talk to others</a>
    
-    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/three_environments/home_page.js"></script>
     <script type="module" src="./scripts/load_item_page.js"></script>
     <script type="module" src="./scripts/image_carousell.js"></script>
     <script type="module" src="./scripts/confirm_item.js"></script>
+    <script type="module" src="./scripts/listing_page_headers.js"></script>
     <script src="https://ipapp-673e.restdb.io/rest/_jsapi.js"></script>
   </body>
 </html> 

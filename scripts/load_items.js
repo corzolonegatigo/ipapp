@@ -1,3 +1,4 @@
+import load_nav_header from "./listing_page_headers";
 import { listing_items } from "./mock_data"
 
 document.addEventListener("DOMContentLoaded", function () { 
@@ -9,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const searchQuery = params.get('search') || '';
 
+    if (searchQuery !== '') {
+        search_bar.value = searchQuery;
+    }
+
     search_bar.addEventListener('input', () => {
         let current_search = search_bar.value;
         render_items(current_search);
@@ -19,12 +24,17 @@ document.addEventListener("DOMContentLoaded", function () {
         let current_search = search_bar.value;
 
         const newUrl = current_search ? `?search=${encodeURIComponent(current_search)}` : window.location.pathname;
-        window.history.replaceState(null, '', newUrl);
+        
 
         // just for the header
         window.localStorage.setItem('search-url', newUrl);
         
         render_items(current_search);
+        window.history.pushState(null, '', newUrl);
+
+        console.log(window.localStorage)
+        load_nav_header()
+        
     })
 
     function render_items(query = '') {
@@ -63,10 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 items_section.appendChild(item_listing);
 
+                item_listing.id = item;
+
                 item_listing.addEventListener('click', function(e) {
                     e.preventDefault();
                     window.localStorage.setItem('item-listing-data', JSON.stringify(itemdata));
-                    window.location.href = "./selecting_item.html";
+                    window.location.href = `./selecting_item.html?item_id=${encodeURIComponent(item)}`;
 
                 })
             }
@@ -76,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     render_items(searchQuery)
+    load_nav_header()
 
 
 })

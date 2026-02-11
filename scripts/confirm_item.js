@@ -16,12 +16,12 @@ const monthly_amt_tag = document.getElementById('monthly-amt');
 const checkbox = document.getElementById('checkbox');
 const affirm_text = document.querySelector('.affirm');
 const select_item = document.getElementById('select-item');
-const final_date = document.getElementById('final-date')
+const final_date = document.getElementById('final-date');
 
 // get price
 const price = JSON.parse(window.localStorage.getItem('item-listing-data')).price;
 const item_name = JSON.parse(window.localStorage.getItem('item-listing-data')).title;
-console.log(item_name, 'itemname')
+console.log(item_name, 'itemname');
 
 
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -31,6 +31,7 @@ var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 
 selector_toggle.addEventListener('click', function(e) {
     selector.classList.toggle('hidden');
+
 })
 
 // load month buttons
