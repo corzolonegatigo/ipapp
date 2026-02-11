@@ -2,25 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>My first three.js app</title>
+    <title>Budggy</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="3js-env"></div>
-    <section id="html-main" class="page-main">
+    <section id="html-main" class="full-size">
+      <div class="page-main flex-center-column">
 
-      <h1>Log In</h1>
+      <h1 class="title">Budggy</h1>
       
-      <form id="login">
-        <label for="username">Username</label>
-        <input type="text" id="username" required>
-        <label for="password">Password</label>
-        <input type="text" id="password" required>
+      <h2 class="subhead">Login</h2>
+        <form id="login" class="login-signup-form">
+          <input type="text" id="username" placeholder="Username" required>
+          <input type="text" id="password" placeholder='Password' required>
+          <h4 class="caption"> If you don't have an account, <a id="login-signup-switch" href="./signup.html">sign up</a></h4>
 
-        <input type="submit" value="Send" id="login-submit">
-      </form>
+          <input type="submit" value="Login" id="login-submit" class="submit-login-signup-button">
+        </form>
 
-      <a id="login-signup-switch" href="./signup.html">Sign Up</a>
+       
+      </div>
     </section>
     
     <script type="module" src="./scripts/three_environments/login_signin.js"></script>

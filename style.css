@@ -1,7 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&family=Sansita+Swashed:wght@300..900&display=swap');
+
+:root {
+    --primary-bg-color: #EDEDED;
+    --alt-bg-color: #C8C8C8;
+    --grey-main: #D9D9D9;
+    --grey-alt: #C0C0C0;
+    --grey-text: #676767;
+    --primary-text-color: rgb(0,0,0);
+    --white-main: #FFF7F7;
+    --green-main: #70877F;
+    --red-main: #FCD1D3;
+    --blue-main: #2270FF;
+
+}
+
 
 html {
     overflow: hidden ;
+    font-family: 'Inter', sans-serif;
 }
 
 
@@ -11,9 +27,28 @@ html {
     gap: 12px;
 }
 
+.flex-center-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+
+}
+
 body {
     overflow: none;
     margin: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select {
+    border-radius: 8px;
 }
 
 /*
@@ -26,32 +61,63 @@ form {
 
 #html-main {
     position: absolute;
-    top: 4%;
-    left: 4%;
-    width: 88%;
-    height: 88%;
+    top: 8%;
+    background-color: var(--primary-bg-color);
+    border-radius: 18px;
+    padding: 2vh 2vw;
+    height: 80%;
     overflow: auto;
-}
-
-#html-main-half {
-    position: absolute;
-    top: 4%;
-    right: 4%;
-    width: 50%;
-    height: 88%;
-    overflow: auto;
+    overflow: hidden;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+}
+
+.half-size {
+    right: 4%;
+    width: 50%;
+}
+
+.full-size {
+    left: 6%;
+    width: 84%;
 }
 
 .page-main {
-    padding: 2vh 2vw;
-    background-color: rgba(237, 237, 237, 0.9);
-    border-radius: 18px;
+   
     width: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
+.page-main::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+    margin: 0 0 1rem 0;
+    line-height: 1;
+}
+
+.subhead {
+    font-family: "Sansita Swashed", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    margin: 2rem 0 0 0;
+}
+
+.caption {
+    font-weight: 500;
+}
+
 
 /* hide when needed bruteforce method. i think its this or innerHTML and this is easier*/ 
 .hidden {
@@ -60,14 +126,114 @@ form {
     height: 0px;
 }
 
-
-.item-selection-screen {
-    display: flex;
-    padding: 2vh 2vw;
-    background-color: gainsboro;
-    border-radius: 12px;
+/* login/signup */
+.login-signup-form {
+    width: 40%;
+    justify-content: center;
+    align-items: center;
     
 }
+
+#signup input {
+    margin-top: 1rem;
+}
+#login input {
+    margin-top: 1.5rem;
+}
+.login-signup-form input {
+    width: 100%;
+    background-color: var(--grey-alt);
+    padding: 1rem;
+    border: none;
+    border-style: none;
+    color: var(--primary-text-color);
+    font-weight: 400;
+}
+
+.login-signup-form input::placeholder {
+    color: var(--grey-text);
+
+}
+/* write like this so will override the width: 100% */
+.login-signup-form input.submit-login-signup-button {
+    width: 70%;
+    background-color: var(--grey-main);
+    color: var(--primary-text-color);
+    font-size: 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    margin-top: 3rem;
+}
+
+.login-signup-form h4 {
+    margin: 0.5rem 0;
+    text-align: left;
+    width: 100%;
+    padding-right: 1rem;
+}
+
+.login-signup-form a {
+    color: var(--blue-main);
+}
+
+
+/* payment info form */
+.payment-form{
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+   
+    
+}
+
+.payment-form input, select{
+    width: 100%;
+    background-color: var(--white-main);
+    padding: 1rem;
+    
+    border: none;
+    border-style: none;
+    color: var(--primary-text-color);
+    font-weight: 400;
+    margin-top: 0.5rem;
+
+    border-style: solid;
+}
+
+
+.payment-form select {
+    /* from gpt, just to move the arrow to the left a little */
+    -webkit-appearance: none; /* Chrome/Safari */
+    -moz-appearance: none;    /* Firefox */
+    appearance: none; 
+    cursor: pointer;
+
+        
+    /*svg code from https://www.svgviewer.dev/s/399950/arrowdown*/
+    background-image: url('data:image/svg+xml;utf8,<svg width="400px" height="400px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><g id="Shopicon"><path points="24,29.172 9.414,14.586 6.586,17.414 24,34.828 41.414,17.414 38.586,14.586 	" d="M12 14.586 4.707 7.293 3.293 8.707 12 17.414l8.707 -8.707 -1.414 -1.414Z"/></g></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15% center; /* distance from border */
+    background-size: 12px;
+
+}
+
+.payment-form input::placeholder {
+    color: var(--grey-text);
+
+}
+
+.expiration-date-form {
+    display: flex;
+    
+}
+
+.momthyear-selector-payment {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+}
+
+/*socmed */
 
 .profile-picture {
     width: 5vw;
@@ -178,7 +344,7 @@ form {
     position: absolute;
     top: 20%;
     left: 4%;
-    width: 40%;
+    width: 35%;
     height: 88%;
     overflow: auto;
     display: flex;
@@ -211,9 +377,8 @@ form {
 #nav-page-head-listings {
     display: flex;
     flex-wrap: wrap;
-    margin: 0.5rem 0.5rem 3rem 0.5rem;
+    margin: 0.5rem 0 0.5rem 0;
     font-size: 1.5rem;
-    font-family: "Inter", sans-serif;
     font-weight: 500;
     gap: 1vw;
     align-items: center;
@@ -230,3 +395,25 @@ form {
     margin: 0;
     font-size: 1.25rem;
 }
+
+header {
+    margin-bottom: 2rem;
+}
+
+#search-bar {
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#search-query {
+    width: 80%;
+    height: 1rem;
+    padding: 0.5rem;
+    border-radius: 7px;
+}
+
+#enter-query {
+    display: none;
+}
+

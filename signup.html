@@ -6,27 +6,68 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Sign Up</h1>
-    
-    <form id="signup">
-      <label for="username">Email</label>
-      <input type="text" id="email" required>
-      <label for="username">Username</label>
-      <input type="text" id="username" required>
-      <label for="password">Password</label>
-      <input type="text" id="password" required>
 
-      <label id="profilePicture">Set Profile Picture</label>
-      <input type="file" id="imageInput" accept="image/*" />
+    <div id="3js-env"></div>
+    <section id="html-main" class="full-size">
+      <div class="page-main flex-center-column">
+
+
+      <!-- done this way instead of changing .innerText so its easier to implement backwards function-->
+      <h1 class="title hide-toggle">Budggy</h1>
+      <h1 class="title hide-toggle hidden">Welcome</h1>
       
+      <h2 class="subhead hide-toggle">Sign Up</h2>
+      <h2 class="subhead hide-toggle hidden">Complete Your Account!</h2>
+      <form id="signup" class="login-signup-form hide-toggle" >
+        <input type="file" id="imageInput" accept="image/*" />
+        <input type="text" id="email" placeholder="Email" class='signin-field' required>
+        <input type="text" id="username" placeholder='Username' class='signin-field' required>
+        <input type="text" id="password" placeholder='Password' class='signin-field' required>
+        <input type="text" id="password-cfmr" placeholder='Confirm Password' class='signin-field' required>
+
+        
+        
+        <h4 class="caption"> If you already have an account, <a id="login-signup-switch" href="./index.html">log in.</a></h4>
 
 
-      <input type="submit" value="Send" id="login-submit">
-    </form>
+        <input type="submit" value="Sign Up" id="login-submit" class="submit-login-signup-button">
+      </form>
 
-    <a id="login-signup-switch" href="./index.html">Log In</a>
+      <form id="payment-details" class="hidden hide-toggle payment-form">
+        
+        <label class="payment-form-label" for="cc-no">Card Details</label>
+        <input type="text" id="cc-no" class='payment-field cc' placeholder="Enter your Credit Card Number" >
+        <div class="expiration-date-form cc">
+            <div class="momthyear-selector-payment">
+                <select name="months" id="months" class="payment-field cc">
+                  <option value="" disabled selected hidden>Month</option>
+                </select>
+                <select name="years" id="years" class="payment-field cc">
+                  <option value="" disabled selected hidden>Year</option>
+                </select>
+
+                <input type="text" id="ccv" class="payment-field small cc" placeholder="enter your ccv">
+            </div>
+            
+        </div>
+        
+        <label class="payment-form-label" for="country">Payment Information</label>
+        <input type="text" id="country" class='payment-field' placeholder="Country of Residence ">
+
+        <input type="text" id="address" class='payment-field' placeholder="Address">
+
+        <input type="text" id="billing-address" class='payment-field' placeholder="Billing Address">
+
+        <input type="text" id="postal-code" class='payment-field' placeholder="Postal Code">
+        <input type="text" id="phone-no" class="payment-field" placeholder="Phone Number">
+
+        <button type="submit" id="submit-payment-info" class="submit-login-signup-button">Confirm Payment</button>
+      </form>
+       
+      </div>
+    </section>
     
-    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/three_environments/login_signin.js"></script>
     <script src="https://ipapp-673e.restdb.io/rest/_jsapi.js"></script>
     <script type="module" src="./scripts/signup.js"></script>
   </body>

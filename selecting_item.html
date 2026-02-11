@@ -8,63 +8,65 @@
   <body>
     
     <div id='3js-env'></div>
-    <div id="html-main" class="page-main">
-      <nav id="nav-page-head-listings">
-          <a class="nav-head-link" href="/main.html" id="shop-redirect">Shop</a>
-        </nav>
-      <section class="hide-toggle">
-        
-        <img id="selected-img">
-        <div class="image-carousell" id="image-carousell">
-            <button class="change-carousell-item" id="carou-bck">bck</button>
-            <button class="change-carousell-item" id="carou-fwd">fwd</button>
-
-        </div>
-
-        <h2 id="item-title">NO ITEM</h2>
-        <p id="item-desc">blah blah blah blah blah blah blah blah</p>
-        <h2 id="price">$123</h2>
-        <h3 class="sold-by">Sold by <em id="seller"></em></h3>
-
-        <h3 class="reviews">
-            <div class='reviews-row'>
-
-            </div>
-        </h3>
-
-
-        <button id="select-item-button">SELECT ITEM</button>
-
-      </section>
-      <section class="hide-toggle hidden">
-        <!-- hidden. vis toggled via select item button-->
-        <button id="return-to-viewing">back</button>
-        <h1 class="saving-for">Saving for <em id="item-name">...</em></h1>
-        <h2 class="caption">I want to reach this goal by: </h2>
-        <!--datepicker-->
-        <button id="select-date">Select Date</button>
-        <div id="month-year-selector" class="hidden">
-          <!--overlay-->
-          <div class="month-year">
-            <div id="months-selector"></div>
-            <div id="year-selector"></div>
-          </div>
+    <div id="html-main" class="full-size">
+      <div class="page-main">
+        <nav id="nav-page-head-listings">
+            <a class="nav-head-link" href="/main.html" id="shop-redirect">Shop</a>
+          </nav>
+        <section class="hide-toggle">
           
-          <button id="confirm">set date</button>
-        </div>
-        <section class="hidden" id="show-after-date-confirmed">
-          <h3 class="caption">To reach my goal I need to save $<em id="monthly-amt">...</em> per month!</h3>
+          <img id="selected-img">
+          <div class="image-carousell" id="image-carousell">
+              <button class="change-carousell-item" id="carou-bck">bck</button>
+              <button class="change-carousell-item" id="carou-fwd">fwd</button>
 
-          <div class="affirm">
-            <img src='./public/checkbox_unlicked.svg' data-alt="./public/checkbox_clicked.svg" id="checkbox"> 
-            <h2 class="caption">I can reach my goals before <em id="final-date">66/77</em>!</h2>
           </div>
-        
 
-          <button id="select-item">Begin</button>
+          <h2 id="item-title">NO ITEM</h2>
+          <p id="item-desc">blah blah blah blah blah blah blah blah</p>
+          <h2 id="price">$123</h2>
+          <h3 class="sold-by">Sold by <em id="seller"></em></h3>
+
+          <h3 class="reviews">
+              <div class='reviews-row'>
+
+              </div>
+          </h3>
+
+
+          <button id="select-item-button">SELECT ITEM</button>
+
         </section>
-       
-      </section>
+        <section class="hide-toggle hidden">
+          <!-- hidden. vis toggled via select item button-->
+          <button id="return-to-viewing">back</button>
+          <h1 class="saving-for">Saving for <em id="item-name">...</em></h1>
+          <h2 class="caption">I want to reach this goal by: </h2>
+          <!--datepicker-->
+          <button id="select-date">Select Date</button>
+          <div id="month-year-selector" class="hidden">
+            <!--overlay-->
+            <div class="month-year">
+              <div id="months-selector"></div>
+              <div id="year-selector"></div>
+            </div>
+            
+            <button id="confirm">set date</button>
+          </div>
+          <section class="hidden" id="show-after-date-confirmed">
+            <h3 class="caption">To reach my goal I need to save $<em id="monthly-amt">...</em> per month!</h3>
+
+            <div class="affirm">
+              <img src='./public/checkbox_unlicked.svg' data-alt="./public/checkbox_clicked.svg" id="checkbox"> 
+              <h2 class="caption">I can reach my goals before <em id="final-date">66/77</em>!</h2>
+            </div>
+          
+
+            <button id="select-item">Begin</button>
+          </section>
+        
+        </section>
+      </div>
     </div>
 
 
