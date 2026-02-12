@@ -78,9 +78,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("login-submit").addEventListener("click", async function (e) {
         e.preventDefault();
         const signin_fields = document.querySelectorAll('.signin-field');
+        
         try {
-            const usernamePresent = await checkUserAvail() // returns false if username is available, returns the firebase reference if avail. safer (probably) to just check value in if loop rather than Bool()
+            let usernameIn = document.getElementById("username").value;
+            const usernamePresent = await checkUserAvail(usernameIn) // returns false if username is available, returns the firebase reference if avail. safer (probably) to just check value in if loop rather than Bool()
             const field_filled = validate_input_presence(signin_fields)
+            console.log(usernamePresent)
             if ((field_filled) && (usernamePresent === false)) {
                 inject_monthyear()
                 hidden_toggle()

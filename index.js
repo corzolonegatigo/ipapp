@@ -27,9 +27,9 @@ const USER_DB = collection(db, 'users');
 export async function checkUserAvail(username) {
     if (username) { 
         const userdoc = doc(USER_DB, username)
+        console.log(userdoc)
         const user = await getDoc(userdoc);
         if (user.exists()) {
-            console.log('helloe')
             return user 
         }
     }
